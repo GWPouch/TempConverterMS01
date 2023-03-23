@@ -5,10 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temperature Converter</title>
+  <link rel="shortcut icon" href="./msWin_favicon.ico" />
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./converter.css">
 
-
+  
 </head>
 <body>
   <h1>Temperature Converter</h1>
@@ -29,12 +30,40 @@
     </select>
     <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
   </form>
-  <script src="converter.js"></script> <!--this seems to be at bottom of page so all elements are already loaded when it executes.   -->
+  <p><a href="./kelvin.html">A note about the Kelvin temperature scale. </a></p>
+  
+  <script src="./converter.js"></script> <!--this seems to be at bottom of page so all elements are already loaded when it executes.   -->
+
   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js', { scope: '/' });
     }
-    </script>
+  </script>
+  
+  <script id="idSCRIPTFileInfoForFooterGWP" title="Writes URL and LastModified into an HTML page.">
+
+    function writeFileInfo(idOfTarget){
+      // this fails if the idOfTarget doesn't exist.
+      if("" == idOfTarget){
+        idOfTarget= "id"+ (new Date() ).getTime() ;  // .getTime()  is equivalent to .valueOf(), and is rather poorly-named
+      }
+
+      try {
+        var dteModified = (new Date(document.lastModified) );         
+        document.getElementById(idOfTarget).innerHTML =    "Page was opened as <br /> " + 
+           document.URL +" <br/><br/>" +
+           "LastModified &nbsp;&nbsp;&nbsp; " +  dteModified.toISOString() + " &nbsp;&nbsp;&nbsp;&nbsp; " +   dteModified.toString()             
+      } catch (error) {
+        // If we could not find a matching element, add a P element at the end
+         let elm = document.createElement("p");
+         elm.id=idOfTarget ;
+         document.body.appendChild( elm );
+         writeFileInfo(idOfTarget) ;
+      }
+    }
+    writeFileInfo();
+  </script><!-- end of idSCRIPTFileInfoForFooterGWP -->
+    
 
 </body>
 </html>

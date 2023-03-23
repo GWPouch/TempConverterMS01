@@ -1,0 +1,20 @@
+{
+  "xliveServer.settings.https": {
+  "enable": true, //set it true to enable the feature.
+  
+  "cert": "C:\\OpenSSL\\KEYS\\dragonfruit\\dragonfruit.crt", //full path of the certificate
+  "key":  "C:\\OpenSSL\\KEYS\\dragonfruit\\dragonfruit.key", //full path of the private key
+  "passphrase": ""
+  } ,
+  "zzliveServer.settings.https": {
+    "enable": true, //set it true to enable the feature.
+    
+    "cert": "C:\\OpenSSL\\KEYS\\dragonfruit\\dragonfruit.crt", //full path of the certificate
+    "key":  "C:\\OpenSSL\\KEYS\\dragonfruit\\dragonfruit.key", //full path of the private key
+    "passphrase": "",
+    "passphrase_ ChallengeFromLog": "09876",
+    "passphrase_privateFromLog": "654321"
+    },
+  
+
+  }
