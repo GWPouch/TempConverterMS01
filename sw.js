@@ -5,11 +5,10 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     cache.addAll([
-      '/TemperatureConverter.html',
-      '/kelvin.html',
-      '/converter.js',
-      '/converter.css',
-      '/sw.js'
+      './',
+      './kelvin.html',
+      './converter.js',
+      './converter.css'
     ]);
   })());
 });
